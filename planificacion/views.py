@@ -6,6 +6,6 @@ def index(request):
     lista_proyectos = Proyecto.objects.all()
     return render(request, "planificacion/index.html", context={"proyectos": lista_proyectos})
 
-def planificacion(request):
+def proyectos(request):
     lista_proyectos = Proyecto.objects.all()
-    return render(request, "planificacion/planificacion.html", context={"proyectos": lista_proyectos})
+    return render(request, "planificacion/proyectos.html", context={"proyectos": lista_proyectos})

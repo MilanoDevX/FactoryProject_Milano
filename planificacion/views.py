@@ -1,6 +1,11 @@
 from django.shortcuts import render
+from .models import Cliente, Vendedor, Proyecto
 
-# Create your views here.
+
 def index(request):
-    context = {"mensaje": "Bienvenidos a Planificación"}
-    return render(request, "planificacion/index.html", context)
+    lista_proyectos = Proyecto.objects.all()
+    return render(request, "planificacion/index.html", context={"proyectos": lista_proyectos})
+
+def planificacion(request):
+    lista_proyectos = Proyecto.objects.all()
+    return render(request, "planificacion/planificacion.html", context={"proyectos": lista_proyectos})

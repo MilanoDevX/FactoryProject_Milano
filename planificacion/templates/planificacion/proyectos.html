@@ -1,25 +1,12 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fábrica - Planificación</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body class="bg-light">
+{% extends 'planificacion/index.html' %}
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="#">Planificación</a>
-            <div>
-                <a class="navbar-brand fw-bold" href="#">Proyectos</a>
-                <a class="navbar-brand fw-bold" href="#">Clientes</a>
-                <a class="navbar-brand fw-bold" href="#">Vendedores</a>
-            </div>
 
-        </div>
-    </nav>
+{% block title %}
+    | Proyectos
+{% endblock title %}
 
+
+{% block content %}
     <div class="container my-5">
         <div class="text-center mb-4">
             <h1 class="fw-bold text-primary">Lista de Proyectos</h1>
@@ -62,8 +49,4 @@
             </table>
         </div>
     </div>
-
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+{% endblock content %}      

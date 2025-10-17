@@ -8,7 +8,12 @@ def index(request):
 
 
 def proyectos(request):
-    lista_proyectos = Proyecto.objects.all()
+    busqueda = request.GET.get("busqueda", None)
+    if busqueda:
+        lista_proyectos = Proyecto.objects.filter(
+            cliente__nombre__icontains=busqueda).order_by("fecha_entrega")
+    else:
+        lista_proyectos = Proyecto.objects.all()
     return render(request, "planificacion/proyectos.html", context={"proyectos": lista_proyectos})
 
 
@@ -53,3 +58,4 @@ def crear_vendedor(request):
     else:
         form = VendedorForm()
     return render(request, "planificacion/crear_vendedor.html", context={"form": form})
+

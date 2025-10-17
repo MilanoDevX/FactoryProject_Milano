@@ -9,11 +9,19 @@
 {% block content %}
     <div class="container my-5">
 
-        <div class="d-flex justify-content-end mb-3">
+        <div class="d-flex justify-content-between mb-3">
+            <form action="{% url 'proyectos' %}" method="GET">
+                <div class="input-group" style="max-width: 600px;">
+                    <input type="text" name="busqueda" class="form-control" placeholder="Nombre de cliente...">
+                    <button class="btn btn-outline-primary" type="submit">Buscar</button>
+                </div>
+            </form>
+
             <a href="{% url 'crear_proyecto' %}" class="btn btn-success">
                 Crear Proyecto
             </a>
         </div>
+
 
         <div class="text-center mb-4">
             <h1 class="fw-bold text-primary">Lista de Proyectos</h1>

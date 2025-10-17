@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Cliente, Vendedor, Proyecto
+from .forms import *
 
 
 def index(request):
@@ -16,3 +17,13 @@ def clientes(request):
 def vendedores(request):
     lista_vendedores = Vendedor.objects.all()
     return render(request, "planificacion/vendedores.html", context={"vendedores": lista_vendedores})
+
+def crear_proyecto(request):
+    if request.method == "POST":
+        form = ProyectoForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("proyectos")
+    else:
+        form = ProyectoForm()
+    return render(request, "planificacion/crear_proyecto.html", context={"form": form})

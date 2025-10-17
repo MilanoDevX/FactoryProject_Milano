@@ -1,0 +1,37 @@
+{% extends 'planificacion/index.html' %}
+
+{% block title %}
+| Crear Proyecto
+{% endblock title %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+
+            <div class="text-center mb-4">
+                <h1 class="fw-bold text-primary">Crear un Proyecto</h1>
+                <p class="text-muted">Completa los siguientes campos para registrar un nuevo proyecto.</p>
+            </div>
+
+            <div class="card shadow-sm p-4 mx-auto" style="max-width: 600px;">
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+
+                    <div class="text-center mt-3">
+                        <a href="{% url 'proyectos' %}" class="btn btn-primary">
+                            Cancelar
+                        </a>
+                        <button type="submit" class="btn btn-success">
+                            Crear Proyecto
+                        </button>
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -9,7 +9,7 @@ class Cliente(models.Model):
     email = models.EmailField()
 
     def __str__(self):
-        return f"Cliente: {self.nombre} {self.apellido}"
+        return f"{self.nombre} {self.apellido}"
 
 
 class Vendedor(models.Model):
@@ -19,7 +19,7 @@ class Vendedor(models.Model):
     email = models.EmailField()
 
     def __str__(self):
-        return f"Vendedor: {self.nombre} {self.apellido}"
+        return f"{self.nombre} {self.apellido}"
 
 
 class Proyecto(models.Model):

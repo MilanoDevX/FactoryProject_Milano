@@ -27,3 +27,15 @@ class ClienteForm(forms.ModelForm):
         }
 
 
+class VendedorForm(forms.ModelForm):
+    class Meta:
+        model = Vendedor
+        fields = ["nombre", "apellido", "telefono", "email"]
+        widgets = {
+            "nombre": forms.TextInput(attrs={'class': 'form-control'}),
+            "apellido": forms.TextInput(attrs={'class': 'form-control'}),
+            "telefono": forms.NumberInput(attrs={'class': 'form-control'}),
+            "email": forms.EmailInput(attrs={'class': 'form-control'}),
+        }
+
+

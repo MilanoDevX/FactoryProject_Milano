@@ -42,3 +42,14 @@ def crear_cliente(request):
     else:
         form = ClienteForm()
     return render(request, "planificacion/crear_cliente.html", context={"form": form})
+
+
+def crear_vendedor(request):
+    if request.method == "POST":
+        form = VendedorForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("vendedores")
+    else:
+        form = VendedorForm()
+    return render(request, "planificacion/crear_vendedor.html", context={"form": form})

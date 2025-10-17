@@ -7,6 +7,7 @@ urlpatterns = [
     path ("clientes/", views.clientes, name="clientes"),
     path ("vendedores/", views.vendedores, name="vendedores"),
     path ("proyectos/crear", views.crear_proyecto, name="crear_proyecto"),
+    path ("clientes/crear", views.crear_cliente, name="crear_cliente"),
 
 
 ]

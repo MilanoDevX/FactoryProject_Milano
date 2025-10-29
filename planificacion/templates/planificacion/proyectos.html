@@ -31,21 +31,19 @@
             <table class="table table-striped table-hover align-middle">
                 <thead class="table-primary">
                     <tr>
-                        <th scope="col">Número de Proyecto</th>
-                        <th scope="col">Fecha de Inicio</th>
-                        <th scope="col">Fecha de Entrega</th>
-                        <th scope="col">Fecha de Ingreso</th>
+                        <th scope="col">Nº Proyecto</th>
                         <th scope="col">Cliente</th>
                         <th scope="col">Vendedor</th>
+                        <th scope="col">Fecha de Ingreso</th>
+                        <th scope="col">Fecha de Inicio</th>
+                        <th scope="col">Fecha de Entrega</th>
+                        <th scope="col">Planificación</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for proyecto in proyectos %}
                         <tr>
                             <td>{{ proyecto.numero_proyecto }}</td>
-                            <td>{{ proyecto.fecha_inicio }}</td>
-                            <td>{{ proyecto.fecha_entrega }}</td>
-                            <td>{{ proyecto.fecha_ingreso }}</td>
                             <td>{{ proyecto.cliente.nombre }} {{ proyecto.cliente.apellido }}</td>
                             <td>
                                 {% if proyecto.vendedor %}
@@ -53,6 +51,14 @@
                                 {% else %}
                                     <span class="text-muted fst-italic">Sin asignar</span>
                                 {% endif %}
+                            </td>
+                            <td>{{ proyecto.fecha_ingreso|date:"d/m/Y"  }}</td>
+                            <td>{{ proyecto.fecha_inicio|date:"d/m/Y"  }}</td>
+                            <td>{{ proyecto.fecha_entrega|date:"d/m/Y"  }}</td>
+                            <td>
+                                <div>Horas Diseño: 10</div>
+                                <div>Horas Fabricación: 20</div>
+                                <div>Horas Montaje: 5</div>
                             </td>
                         </tr>
                     {% empty %}

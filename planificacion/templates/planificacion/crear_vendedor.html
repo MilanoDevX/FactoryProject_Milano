@@ -1,4 +1,4 @@
-{% extends 'planificacion/index.html' %}
+{% extends 'Main/index.html' %}
 
 {% block title %}
 | Crear Vendedor
@@ -20,7 +20,7 @@
                     {{ form.as_p }}
 
                     <div class="text-center mt-3">
-                        <a href="{% url 'vendedores' %}" class="btn btn-primary">
+                        <a href="{% url 'planificacion:vendedores' %}" class="btn btn-primary">
                             Cancelar
                         </a>
                         <button type="submit" class="btn btn-success">

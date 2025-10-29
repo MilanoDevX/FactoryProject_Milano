@@ -3,9 +3,11 @@ from .models import Cliente, Vendedor, Proyecto
 from .forms import *
 
 
-def index(request):
-    return render(request, "planificacion/index.html")
+# def index(request):
+#     return render(request, "planificacion/index.html")
 
+def planificacion(request):
+    return render(request, "planificacion/planificacion.html")
 
 def proyectos(request):
     busqueda = request.GET.get("busqueda", None)
@@ -32,7 +34,7 @@ def crear_proyecto(request):
         form = ProyectoForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("proyectos")
+            return redirect("planificacion:proyectos")
     else:
         form = ProyectoForm()
     return render(request, "planificacion/crear_proyecto.html", context={"form": form})
@@ -43,7 +45,7 @@ def crear_cliente(request):
         form = ClienteForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("clientes")
+            return redirect("planificacion:clientes")
     else:
         form = ClienteForm()
     return render(request, "planificacion/crear_cliente.html", context={"form": form})
@@ -54,7 +56,7 @@ def crear_vendedor(request):
         form = VendedorForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("vendedores")
+            return redirect("planificacion:vendedores")
     else:
         form = VendedorForm()
     return render(request, "planificacion/crear_vendedor.html", context={"form": form})

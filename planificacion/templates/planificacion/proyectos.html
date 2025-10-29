@@ -1,4 +1,4 @@
-{% extends 'planificacion/index.html' %}
+{% extends 'Main/index.html' %}
 
 
 {% block title %}
@@ -10,14 +10,14 @@
     <div class="container my-5">
 
         <div class="d-flex justify-content-between mb-3">
-            <form action="{% url 'proyectos' %}" method="GET">
+            <form action="{% url 'planificacion:proyectos' %}" method="GET">
                 <div class="input-group" style="max-width: 600px;">
                     <input type="text" name="busqueda" class="form-control" placeholder="Nombre de cliente...">
                     <button class="btn btn-outline-primary" type="submit">Buscar</button>
                 </div>
             </form>
 
-            <a href="{% url 'crear_proyecto' %}" class="btn btn-success">
+            <a href="{% url 'planificacion:crear_proyecto' %}" class="btn btn-success">
                 Crear Proyecto
             </a>
         </div>

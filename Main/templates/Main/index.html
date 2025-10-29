@@ -23,9 +23,11 @@
         main {
             flex: 1;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
+            gap: 2rem;
         }
 
         footer {
@@ -91,7 +93,9 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="/">Planificación</a>
+            <a class="navbar-brand fw-bold" href="{% url 'Main:index' %}">Inicio</a>
+            <a class="navbar-brand fw-bold" href="{% url 'planificacion:planificacion' %}">Planificación</a>
+            <a class="navbar-brand fw-bold" href="#">Producción</a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu"
                 aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -101,14 +105,19 @@
             <div class="collapse navbar-collapse" id="navbarMenu">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link text-white fw-semibold" href=" {% url 'proyectos' %} ">Proyectos</a>
+                        <a class="nav-link text-white fw-semibold" href=" {% url 'planificacion:proyectos' %} ">Proyectos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white fw-semibold" href=" {% url 'clientes' %} ">Clientes</a>
+                        <a class="nav-link text-white fw-semibold" href=" {% url 'planificacion:clientes' %} ">Clientes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white fw-semibold" href=" {% url 'vendedores' %} ">Vendedores</a>
+                        <a class="nav-link text-white fw-semibold" href=" {% url 'planificacion:vendedores' %} ">Vendedores</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white fw-semibold" href=" {% url 'planificacion:vendedores' %} ">Informes de Producción</a>
+                    </li>
+
+
                 </ul>
             </div>
 
@@ -119,10 +128,15 @@
         <main class="container my-5">
             <div>
                 <h1 class="fw-bold text-primary mb-3">Planificación</h1>
-                <h2><a class="text-secondary" href=" {% url 'proyectos' %} ">Proyectos</a></h2>
-                <h2><a class="text-secondary" href=" {% url 'clientes' %} ">Clientes</a></h2>
-                <h2><a class="text-secondary" href=" {% url 'vendedores' %} ">Vendedores</a></h2>
+                <h2><a class="text-secondary" href=" {% url 'planificacion:proyectos' %} ">Proyectos</a></h2>
+                <h2><a class="text-secondary" href=" {% url 'planificacion:clientes' %} ">Clientes</a></h2>
+                <h2><a class="text-secondary" href=" {% url 'planificacion:vendedores' %} ">Vendedores</a></h2>
             </div>
+            <div>
+                <h1 class="fw-bold text-primary mb-3">Producción</h1>
+                <h2><a class="text-secondary" href="#">Informes de Producción</a></h2>
+            </div>
+
         </main>
     {% endblock content %}
 

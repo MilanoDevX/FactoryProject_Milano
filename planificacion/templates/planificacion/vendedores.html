@@ -1,4 +1,4 @@
-{% extends 'planificacion/index.html' %}
+{% extends 'Main/index.html' %}
 
 
 {% block title %}
@@ -10,7 +10,7 @@
     <div class="container my-5">
 
         <div class="d-flex justify-content-end mb-3">
-            <a href="{% url 'crear_vendedor' %}" class="btn btn-success">
+            <a href="{% url 'planificacion:crear_vendedor' %}" class="btn btn-success">
                 Crear Vendedor
             </a>
         </div>

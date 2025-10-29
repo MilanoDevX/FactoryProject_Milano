@@ -23,10 +23,13 @@ class Vendedor(models.Model):
 
 
 class Proyecto(models.Model):
-    numero_proyecto = models.IntegerField()
+    numero_proyecto = models.IntegerField(unique=True)
     fecha_inicio = models.DateField()
     fecha_entrega = models.DateField()
     fecha_ingreso = models.DateTimeField(auto_now_add=True)
+    horas_disenio_teo = models.IntegerField(null=True)
+    horas_fabricacion_teo = models.IntegerField(null=True)
+    horas_montaje_teo = models.IntegerField(null=True)
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE, related_name="proyectos")
     vendedor = models.ForeignKey(Vendedor, on_delete=models.SET_NULL, null=True, blank=True, related_name="proyectos")
 

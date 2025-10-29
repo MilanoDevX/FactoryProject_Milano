@@ -56,9 +56,9 @@
                             <td>{{ proyecto.fecha_inicio|date:"d/m/Y"  }}</td>
                             <td>{{ proyecto.fecha_entrega|date:"d/m/Y"  }}</td>
                             <td>
-                                <div>Horas Diseño: 10</div>
-                                <div>Horas Fabricación: 20</div>
-                                <div>Horas Montaje: 5</div>
+                                <div>Horas Diseño: {{ proyecto.horas_disenio_teo|default_if_none:"0" }}</div>
+                                <div>Horas Fabricación: {{ proyecto.horas_fabricacion_teo|default_if_none:"0" }}</div>
+                                <div>Horas Montaje: {{ proyecto.horas_montaje_teo|default_if_none:"0" }}</div>
                             </td>
                         </tr>
                     {% empty %}

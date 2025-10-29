@@ -4,13 +4,16 @@ from .models import Proyecto, Cliente, Vendedor
 class ProyectoForm(forms.ModelForm):
     class Meta:
         model = Proyecto
-        fields = ["numero_proyecto", "fecha_inicio", "fecha_entrega", "cliente", "vendedor"]
+        fields = ["numero_proyecto", "cliente", "vendedor", "fecha_inicio", "fecha_entrega", "horas_disenio_teo", "horas_fabricacion_teo", "horas_montaje_teo" ]
         widgets = {
             "numero_proyecto": forms.NumberInput(attrs={'class': 'form-control'}),
-            "fecha_inicio": forms.DateInput(attrs={'type': 'date', 'class': 'form-control'}),
-            "fecha_entrega": forms.DateInput(attrs={'type': 'date', 'class': 'form-control'}),
             "cliente": forms.Select(attrs={'class': 'form-control'}),
             "vendedor": forms.Select(attrs={'class': 'form-control'}),
+            "fecha_inicio": forms.DateInput(attrs={'type': 'date', 'class': 'form-control'}),
+            "fecha_entrega": forms.DateInput(attrs={'type': 'date', 'class': 'form-control'}),
+            "horas_disenio_teo": forms.NumberInput(attrs={'class': 'form-control'}),
+            "horas_fabricacion_teo": forms.NumberInput(attrs={'class': 'form-control'}),
+            "horas_montaje_teo": forms.NumberInput(attrs={'class': 'form-control'}),
         }
 
 

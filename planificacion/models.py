@@ -27,9 +27,9 @@ class Proyecto(models.Model):
     fecha_inicio = models.DateField()
     fecha_entrega = models.DateField()
     fecha_ingreso = models.DateTimeField(auto_now_add=True)
-    horas_disenio_teo = models.IntegerField(null=True)
-    horas_fabricacion_teo = models.IntegerField(null=True)
-    horas_montaje_teo = models.IntegerField(null=True)
+    horas_disenio_teo = models.FloatField(null=True)
+    horas_fabricacion_teo = models.FloatField(null=True)
+    horas_montaje_teo = models.FloatField(null=True)
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE, related_name="proyectos")
     vendedor = models.ForeignKey(Vendedor, on_delete=models.SET_NULL, null=True, blank=True, related_name="proyectos")
 

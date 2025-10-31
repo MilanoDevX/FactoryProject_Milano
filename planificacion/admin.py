@@ -6,8 +6,8 @@ from .models import *
 
 @admin.register(Proyecto)
 class ProyectoAdmin(admin.ModelAdmin):
-    list_display = ["numero_proyecto", "fecha_inicio", "fecha_entrega", "fecha_ingreso", "cliente", "vendedor"]
-    list_filter = ["numero_proyecto", "fecha_inicio", "fecha_entrega", "fecha_ingreso", "cliente", "vendedor"]
+    list_display = ["numero_proyecto", "fecha_inicio", "fecha_entrega", "fecha_ingreso", "cliente", "vendedor", "horas_disenio_teo", "horas_fabricacion_teo", "horas_montaje_teo",]
+    list_filter = ["numero_proyecto", "fecha_inicio", "fecha_entrega", "fecha_ingreso", "cliente", "vendedor", "horas_disenio_teo", "horas_fabricacion_teo", "horas_montaje_teo",]
     raw_id_fields = ["cliente", "vendedor"]
     ordering = ["-numero_proyecto"]
 

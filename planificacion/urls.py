@@ -4,7 +4,6 @@ from planificacion import views
 app_name = "planificacion"
 
 urlpatterns = [
-    # path ("", views.index, name="index"),
     path ("planificacion/", views.planificacion, name="planificacion"),
     path ("proyectos/", views.proyectos, name="proyectos"),
     path ("clientes/", views.clientes, name="clientes"),

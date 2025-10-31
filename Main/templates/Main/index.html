@@ -114,7 +114,7 @@
                         <a class="nav-link text-white fw-semibold" href=" {% url 'planificacion:vendedores' %} ">Vendedores</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white fw-semibold" href=" {% url 'planificacion:vendedores' %} ">Informes de Producción</a>
+                        <a class="nav-link text-white fw-semibold" href=" {% url 'produccion:produccion_list' %} ">Informes de Producción</a>
                     </li>
 
 
@@ -134,7 +134,7 @@
             </div>
             <div>
                 <h1 class="fw-bold text-primary mb-3">Producción</h1>
-                <h2><a class="text-secondary" href="#">Informes de Producción</a></h2>
+                <h2><a class="text-secondary" href="{% url 'produccion:produccion_list' %}">Informes de Producción</a></h2>
             </div>
 
         </main>

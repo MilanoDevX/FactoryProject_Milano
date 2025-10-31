@@ -1,0 +1,59 @@
+{% extends "Main/index.html" %}
+
+
+{% block content %}
+<div class="container mt-5 d-flex justify-content-center">
+    <div class="card shadow-lg border-0 w-75">
+        <div class="card-header bg-primary text-white text-center">
+            <h3 class="mb-0">
+                Producción — Proyecto N° {{ produccion.numero_proyecto.id }}
+            </h3>
+        </div>
+
+        <div class="card-body">
+            <h5 class="card-title text-secondary mb-4">
+                Detalles de la producción
+            </h5>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <p><strong>Horas Diseño (Teóricas):</strong> 
+                        {{ produccion.horas_disenio_teo|default:"—" }}</p>
+                    <p><strong>Horas Diseño (Reales):</strong> 
+                        {{ produccion.horas_disenio_real }}</p>
+                </div>
+                <div class="col-md-6">
+                    <p><strong>Horas Fabricación (Teóricas):</strong> 
+                        {{ produccion.horas_fabricacion_teo|default:"—" }}</p>
+                    <p><strong>Horas Fabricación (Reales):</strong> 
+                        {{ produccion.horas_fabricacion_real }}</p>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <p><strong>Horas Montaje (Teóricas):</strong> 
+                        {{ produccion.horas_montaje_teo|default:"—" }}</p>
+                    <p><strong>Horas Montaje (Reales):</strong> 
+                        {{ produccion.horas_montaje_real }}</p>
+                </div>
+                <div class="col-md-6">
+                    <p><strong>Incidencias:</strong></p>
+                    <p class="border rounded p-2 bg-light">
+                        {{ produccion.incidencias|default:"Sin incidencias registradas" }}
+                    </p>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="d-flex justify-content-between">
+                <a href="{% url 'produccion:produccion_list' %}" class="btn btn-secondary">
+                    ← Volver al listado
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

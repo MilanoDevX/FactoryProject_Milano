@@ -1,0 +1,77 @@
+{% extends 'Main/index.html' %}
+
+{% block title %}
+| Crear Producción
+{% endblock title %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+
+            <div class="text-center mb-4">
+                <h1 class="fw-bold text-primary">Registrar Producción</h1>
+                <p class="text-muted">Completa los siguientes campos para registrar una nueva producción.</p>
+            </div>
+
+            <div class="card shadow-sm p-4 mx-auto" style="max-width: 600px;">
+                <form method="POST">
+                    {% csrf_token %}
+
+                    <!-- Campo: Número de Proyecto -->
+                    <div class="mb-3">
+                        <label for="{{ form.numero_proyecto.id_for_label }}" class="form-label fw-semibold">
+                            Número de Proyecto
+                        </label>
+                        {{ form.numero_proyecto }}
+                    </div>
+
+                    <!-- Campo: Horas de Diseño Real -->
+                    <div class="mb-3">
+                        <label for="{{ form.horas_disenio_real.id_for_label }}" class="form-label fw-semibold">
+                            Horas de Diseño (Real)
+                        </label>
+                        {{ form.horas_disenio_real }}
+                    </div>
+
+                    <!-- Campo: Horas de Fabricación Real -->
+                    <div class="mb-3">
+                        <label for="{{ form.horas_fabricacion_real.id_for_label }}" class="form-label fw-semibold">
+                            Horas de Fabricación (Real)
+                        </label>
+                        {{ form.horas_fabricacion_real }}
+                    </div>
+
+                    <!-- Campo: Horas de Montaje Real -->
+                    <div class="mb-4">
+                        <label for="{{ form.horas_montaje_real.id_for_label }}" class="form-label fw-semibold">
+                            Horas de Montaje (Real)
+                        </label>
+                        {{ form.horas_montaje_real }}
+                    </div>
+
+                    <!-- Campo: Incidencias -->
+                    <div class="mb-4">
+                        <label for="{{ form.incidencias.id_for_label }}" class="form-label fw-semibold">
+                            Incidencias
+                        </label>
+                        {{ form.incidencias }}
+                    </div>
+
+                    <div class="text-center mt-3">
+                        <a href="{% url 'produccion:produccion_list' %}" class="btn btn-outline-primary">
+                            Cancelar
+                        </a>
+                        <button type="submit" class="btn btn-success">
+                            Guardar Producción
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

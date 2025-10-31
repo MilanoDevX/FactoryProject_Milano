@@ -1,0 +1,72 @@
+{% extends 'Main/index.html' %}
+
+{% block title %}
+    | Producción
+{% endblock title %}
+
+{% block content %}
+<div class="container my-5">
+
+    <!-- Barra superior: búsqueda y botón de creación -->
+    <div class="d-flex justify-content-between mb-3">
+        <form action="{% url 'produccion:produccion_list' %}" method="GET">
+            <div class="input-group" style="max-width: 600px;">
+                <input type="text" name="q" class="form-control" placeholder="Número de proyecto...">
+                <button class="btn btn-outline-primary" type="submit">Buscar</button>
+            </div>
+        </form>
+
+        <a href="{% url 'produccion:produccion_create' %}" class="btn btn-success">
+            Nueva Producción
+        </a>
+    </div>
+
+    <!-- Título -->
+    <div class="text-center mb-4">
+        <h1 class="fw-bold text-primary">Lista de Producción</h1>
+    </div>
+
+    <!-- Tabla de datos -->
+    <div class="table-responsive shadow-sm">
+        <table class="table table-striped table-hover align-middle">
+            <thead class="table-primary">
+                <tr>
+                    <th scope="col">Nº Proyecto</th>
+                    <th scope="col">Horas Teóricas</th>
+                    <th scope="col">Horas Reales</th>
+                    <th scope="col" class="text-center">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for produccion in produccion_list %}
+                    <tr>
+                        <td>{{ produccion.numero_proyecto.numero_proyecto }}</td>
+                        <td>
+                            <div>Diseño: {{ produccion.horas_disenio_teo.numero_proyecto|default_if_none:"-" }}</div>
+                            <div>Fabricación: {{ produccion.horas_fabricacion_teo.numero_proyecto|default_if_none:"-" }}</div>
+                            <div>Montaje: {{ produccion.horas_montaje_teo.numero_proyecto|default_if_none:"-" }}</div>
+                        </td>
+                        <td>
+                            <div>Diseño: {{ produccion.horas_disenio_real|default_if_none:"0" }}</div>
+                            <div>Fabricación: {{ produccion.horas_fabricacion_real|default_if_none:"0" }}</div>
+                            <div>Montaje: {{ produccion.horas_montaje_real|default_if_none:"0" }}</div>
+                        </td>
+                        <td class="text-center">
+                            <a href="{% url 'produccion:produccion_detail' produccion.numero_proyecto.numero_proyecto %}" class="btn btn-sm btn-outline-info">Ver</a>
+                            <a href="{% url 'produccion:produccion_edit' produccion.numero_proyecto.numero_proyecto %}" class="btn btn-sm btn-outline-warning">Editar</a>
+                            <a href="{% url 'produccion:produccion_delete' produccion.numero_proyecto.numero_proyecto %}" class="btn btn-sm btn-outline-danger">Eliminar</a>
+
+                        </td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="6" class="text-center text-muted py-3">
+                            No hay registros de producción disponibles
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock content %}

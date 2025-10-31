@@ -3,9 +3,6 @@ from .models import Cliente, Vendedor, Proyecto
 from .forms import *
 
 
-# def index(request):
-#     return render(request, "planificacion/index.html")
-
 def planificacion(request):
     return render(request, "planificacion/planificacion.html")
 

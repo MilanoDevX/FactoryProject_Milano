@@ -1,0 +1,20 @@
+{% extends "Main/index.html" %}
+
+
+{% block content %}
+<div class="container my-5 text-center">
+    <div class="card shadow p-4 mx-auto" style="max-width: 700px;">
+
+        <h4 class="mb-4">
+            ¿Seguro que deseas eliminar el registro de producción de <strong>{{ produccion.numero_proyecto }}</strong> ?
+        </h4>
+
+        <form method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger px-4">Sí, eliminar</button>
+            <a href="{% url 'produccion:produccion_list' %}" class="btn btn-secondary px-4">Cancelar</a>
+        </form>
+
+    </div>
+</div>
+{% endblock %}

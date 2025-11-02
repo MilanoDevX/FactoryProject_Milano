@@ -38,6 +38,7 @@
                         <th scope="col">Fecha de Inicio</th>
                         <th scope="col">Fecha de Entrega</th>
                         <th scope="col">Planificación</th>
+                        <th scope="col" class="text-center">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -59,6 +60,14 @@
                                 <div>Horas Diseño: {{ proyecto.horas_disenio_teo|default_if_none:"0" }}</div>
                                 <div>Horas Fabricación: {{ proyecto.horas_fabricacion_teo|default_if_none:"0" }}</div>
                                 <div>Horas Montaje: {{ proyecto.horas_montaje_teo|default_if_none:"0" }}</div>
+                            </td>
+                            <td class="text-center">
+                                <a href="{% url 'planificacion:detalles_proyecto' proyecto.numero_proyecto %}" 
+                                class="btn btn-info btn-sm me-1" style="width:70px">Ver</a>
+                                <a href="{% url 'planificacion:editar_proyecto' proyecto.numero_proyecto %}" 
+                                class="btn btn-warning btn-sm me-1" style="width:70px">Editar</a>
+                                <a href="{% url 'planificacion:eliminar_proyecto' proyecto.numero_proyecto %}" 
+                                class="btn btn-danger btn-sm" style="width:70px">Eliminar</a>
                             </td>
                         </tr>
                     {% empty %}

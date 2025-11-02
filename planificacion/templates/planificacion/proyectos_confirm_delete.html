@@ -1,0 +1,21 @@
+{% extends "Main/index.html" %}
+
+
+{% block content %}
+<div class="container my-5 text-center">
+    <div class="card shadow p-4 mx-auto" style="max-width: 700px;">
+
+        <h4 class="mb-2">
+            ¿Seguro que deseas eliminar este proyecto?
+        </h4>
+        <h4 class="mb-4"><strong>{{ proyecto.numero_proyecto }} - {{ proyecto.cliente }}</strong></h4>
+
+        <form method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger px-4">Sí, eliminar</button>
+            <a href="{% url 'planificacion:proyectos' %}" class="btn btn-secondary px-4">Cancelar</a>
+        </form>
+
+    </div>
+</div>
+{% endblock %}

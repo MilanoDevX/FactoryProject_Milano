@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib import messages
 from .models import Cliente, Vendedor, Proyecto
 from .forms import *
 
@@ -58,3 +59,29 @@ def crear_vendedor(request):
         form = VendedorForm()
     return render(request, "planificacion/crear_vendedor.html", context={"form": form})
 
+
+def detalles_proyecto(request, numero_proyecto):
+    proyecto = get_object_or_404(Proyecto, numero_proyecto=numero_proyecto)
+    return render(request, "planificacion/proyectos_detail.html", {"proyecto": proyecto})
+
+
+def editar_proyecto(request, numero_proyecto):
+    proyecto = get_object_or_404(Proyecto, numero_proyecto=numero_proyecto)
+    if request.method == "POST":
+        form = ProyectoForm(request.POST, instance=proyecto)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "El proyecto se ha actualizado correctamente.")
+            return redirect("planificacion:proyectos")
+    else:
+        form = ProyectoForm(instance=proyecto)
+    return render(request, "planificacion/proyectos_edit.html", {"form": form, "proyecto": proyecto})
+
+
+def eliminar_proyecto(request, numero_proyecto):
+    proyecto = get_object_or_404(Proyecto, numero_proyecto=numero_proyecto)
+    if request.method == "POST":
+        proyecto.delete()
+        messages.success(request, "El proyecto se ha eliminado correctamente.")
+        return redirect("planificacion:proyectos")
+    return render(request, "planificacion/proyectos_confirm_delete.html", {"proyecto": proyecto})

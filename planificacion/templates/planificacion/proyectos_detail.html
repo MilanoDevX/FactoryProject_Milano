@@ -1,0 +1,44 @@
+{% extends 'Main/index.html' %}
+
+{% block title %}
+    | Detalles del Proyecto
+{% endblock title %}
+
+{% block content %}
+<div class="container my-5 d-flex justify-content-center">
+    <div class="card shadow-lg" style="max-width: 700px; width: 100%;">
+        <div class="card-header bg-primary text-white text-center">
+            <h3 class="mb-0">Proyecto Nº {{ proyecto.numero_proyecto }}</h3>
+        </div>
+        <div class="card-body">
+            <h5 class="text-secondary mb-3">Información General</h5>
+            <ul class="list-group list-group-flush mb-4">
+                <li class="list-group-item"><strong>Cliente:</strong> {{ proyecto.cliente.nombre }} {{ proyecto.cliente.apellido }}</li>
+                <li class="list-group-item"><strong>Vendedor:</strong> 
+                    {% if proyecto.vendedor %}
+                        {{ proyecto.vendedor.nombre }} {{ proyecto.vendedor.apellido }}
+                    {% else %}
+                        <span class="text-muted fst-italic">Sin asignar</span>
+                    {% endif %}
+                </li>
+                <li class="list-group-item"><strong>Fecha de Ingreso:</strong> {{ proyecto.fecha_ingreso|date:"d/m/Y H:i" }}</li>
+                <li class="list-group-item"><strong>Fecha de Inicio:</strong> {{ proyecto.fecha_inicio|date:"d/m/Y" }}</li>
+                <li class="list-group-item"><strong>Fecha de Entrega:</strong> {{ proyecto.fecha_entrega|date:"d/m/Y" }}</li>
+            </ul>
+
+            <h5 class="text-secondary mb-3">Horas Teóricas</h5>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><strong>Diseño:</strong> {{ proyecto.horas_disenio_teo|default_if_none:"0" }}</li>
+                <li class="list-group-item"><strong>Fabricación:</strong> {{ proyecto.horas_fabricacion_teo|default_if_none:"0" }}</li>
+                <li class="list-group-item"><strong>Montaje:</strong> {{ proyecto.horas_montaje_teo|default_if_none:"0" }}</li>
+            </ul>
+        </div>
+
+        <div class="card-footer text-center bg-light">
+            <a href="{% url 'planificacion:editar_proyecto' proyecto.numero_proyecto %}" class="btn btn-warning me-2">Editar</a>
+            <a href="{% url 'planificacion:eliminar_proyecto' proyecto.numero_proyecto %}" class="btn btn-danger me-2">Eliminar</a>
+            <a href="{% url 'planificacion:proyectos' %}" class="btn btn-secondary">Volver</a>
+        </div>
+    </div>
+</div>
+{% endblock content %}

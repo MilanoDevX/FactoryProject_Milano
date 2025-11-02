@@ -4,9 +4,11 @@ from .models import Proyecto, Cliente, Vendedor
 class ProyectoForm(forms.ModelForm):
     class Meta:
         model = Proyecto
-        fields = ["numero_proyecto", "cliente", "vendedor", "fecha_inicio", "fecha_entrega", "horas_disenio_teo", "horas_fabricacion_teo", "horas_montaje_teo" ]
+        fields = ["numero_proyecto", "plano", "descripcion", "antecedentes", "cliente", "vendedor", "fecha_inicio", "fecha_entrega", "horas_disenio_teo", "horas_fabricacion_teo", "horas_montaje_teo" ]
         widgets = {
             "numero_proyecto": forms.NumberInput(attrs={'class': 'form-control'}),
+            "descripcion": forms.Textarea(attrs={"rows": 3, "class": "form-control"}),
+            "antecedentes": forms.Textarea(attrs={"rows": 2, "class": "form-control"}),
             "cliente": forms.Select(attrs={'class': 'form-control'}),
             "vendedor": forms.Select(attrs={'class': 'form-control'}),
             "fecha_inicio": forms.DateInput(attrs={'type': 'date', 'class': 'form-control'}),

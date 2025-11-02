@@ -68,7 +68,7 @@ def detalles_proyecto(request, numero_proyecto):
 def editar_proyecto(request, numero_proyecto):
     proyecto = get_object_or_404(Proyecto, numero_proyecto=numero_proyecto)
     if request.method == "POST":
-        form = ProyectoForm(request.POST, instance=proyecto)
+        form = ProyectoForm(request.POST, request.FILES, instance=proyecto)
         if form.is_valid():
             form.save()
             messages.success(request, "El proyecto se ha actualizado correctamente.")

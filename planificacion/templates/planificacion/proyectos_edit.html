@@ -1,7 +1,7 @@
 {% extends 'Main/index.html' %}
 
 {% block title %}
-| Crear Proyecto
+| Editar Proyecto
 {% endblock title %}
 
 {% block content %}
@@ -10,25 +10,27 @@
         <div class="col-md-8 col-lg-6">
 
             <div class="text-center mb-4">
-                <h1 class="fw-bold text-primary">Editar un Proyecto</h1>
-                <p class="text-muted">Completa los siguientes campos para editar la información del proyecto.</p>
+                <h1 class="fw-bold text-primary">Editar Proyecto</h1>
+                <p class="text-muted">Actualiza los campos necesarios.</p>
             </div>
 
             <div class="card shadow-sm p-4 mx-auto" style="max-width: 600px;">
-                <form method="POST">
+                <form method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
                     {{ form.as_p }}
 
+                    {% if proyecto.plano %}
+                        <div class="text-center mb-3">
+                            <p class="text-muted">Plano actual:</p>
+                            <img src="{{ proyecto.plano.url }}" alt="Plano actual" class="img-fluid rounded shadow-sm" style="max-height: 200px;">
+                        </div>
+                    {% endif %}
+
                     <div class="text-center mt-3">
-                        <a href="{% url 'planificacion:proyectos' %}" class="btn btn-primary">
-                            Cancelar
-                        </a>
-                        <button type="submit" class="btn btn-success">
-                            Guardar
-                        </button>
+                        <a href="{% url 'planificacion:proyectos' %}" class="btn btn-primary">Cancelar</a>
+                        <button type="submit" class="btn btn-success">Guardar</button>
                     </div>
                 </form>
-
             </div>
 
         </div>

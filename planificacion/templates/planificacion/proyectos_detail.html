@@ -6,15 +6,19 @@
 
 {% block content %}
 <div class="container my-5 d-flex justify-content-center">
-    <div class="card shadow-lg" style="max-width: 700px; width: 100%;">
+    <div class="card shadow-lg" style="max-width: 750px; width: 100%;">
+        <!-- Encabezado -->
         <div class="card-header bg-primary text-white text-center">
             <h3 class="mb-0">Proyecto Nº {{ proyecto.numero_proyecto }}</h3>
         </div>
+
+        <!-- Cuerpo principal -->
         <div class="card-body">
+            <!-- Información general -->
             <h5 class="text-secondary mb-3">Información General</h5>
             <ul class="list-group list-group-flush mb-4">
                 <li class="list-group-item"><strong>Cliente:</strong> {{ proyecto.cliente.nombre }} {{ proyecto.cliente.apellido }}</li>
-                <li class="list-group-item"><strong>Vendedor:</strong> 
+                <li class="list-group-item"><strong>Vendedor:</strong>
                     {% if proyecto.vendedor %}
                         {{ proyecto.vendedor.nombre }} {{ proyecto.vendedor.apellido }}
                     {% else %}
@@ -26,6 +30,36 @@
                 <li class="list-group-item"><strong>Fecha de Entrega:</strong> {{ proyecto.fecha_entrega|date:"d/m/Y" }}</li>
             </ul>
 
+            <!-- Nuevos campos -->
+            <h5 class="text-secondary mb-3">Detalles del Proyecto</h5>
+            <ul class="list-group list-group-flush mb-4">
+                <li class="list-group-item">
+                    <strong>Descripción:</strong>
+                    {% if proyecto.descripcion %}
+                        {{ proyecto.descripcion }}
+                    {% else %}
+                        <span class="text-muted fst-italic">Sin descripción</span>
+                    {% endif %}
+                </li>
+                <li class="list-group-item">
+                    <strong>Antecedentes:</strong>
+                    {% if proyecto.antecedentes %}
+                        {{ proyecto.antecedentes }}
+                    {% else %}
+                        <span class="text-muted fst-italic">Sin antecedentes</span>
+                    {% endif %}
+                </li>
+                <li class="list-group-item">
+                    <strong>Plano:</strong><br>
+                    {% if proyecto.plano %}
+                        <img src="{{ proyecto.plano.url }}" alt="Plano del proyecto" class="img-fluid rounded mt-2 shadow-sm" style="max-height: 300px; object-fit: contain;">
+                    {% else %}
+                        <span class="text-muted fst-italic">Sin plano adjunto</span>
+                    {% endif %}
+                </li>
+            </ul>
+
+            <!-- Horas teóricas -->
             <h5 class="text-secondary mb-3">Horas Teóricas</h5>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item"><strong>Diseño:</strong> {{ proyecto.horas_disenio_teo|default_if_none:"0" }}</li>
@@ -34,6 +68,7 @@
             </ul>
         </div>
 
+        <!-- Footer con botones -->
         <div class="card-footer text-center bg-light">
             <a href="{% url 'planificacion:editar_proyecto' proyecto.numero_proyecto %}" class="btn btn-warning me-2">Editar</a>
             <a href="{% url 'planificacion:eliminar_proyecto' proyecto.numero_proyecto %}" class="btn btn-danger me-2">Eliminar</a>

@@ -24,6 +24,9 @@ class Vendedor(models.Model):
 
 class Proyecto(models.Model):
     numero_proyecto = models.IntegerField(unique=True)
+    plano = models.ImageField(upload_to="planos", null=True, blank=True)
+    descripcion = models.CharField(max_length=200, null=True, blank=True)
+    antecedentes = models.CharField(max_length=100, null=True, blank=True)
     fecha_inicio = models.DateField()
     fecha_entrega = models.DateField()
     fecha_ingreso = models.DateTimeField(auto_now_add=True)

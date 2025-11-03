@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'Main',
     'planificacion',
     'produccion',
+    'cuentas',
 ]
 
 MIDDLEWARE = [
@@ -124,5 +125,17 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# app y modelo para manejo de usuarios
+AUTH_USER_MODEL = 'cuentas.Perfil'  
+
+# directorios para guardado de imagenes
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+# Manejo de rutas durante login y logout
+LOGIN_URL = 'cuentas:login'
+LOGIN_REDIRECT_URL = 'cuentas:profile_detail'
+# LOGOUT_REDIRECT_URL = 'cuentas:login'  # Queda comentado para mostrar template logout.html
+
+
+

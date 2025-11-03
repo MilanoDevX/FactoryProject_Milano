@@ -116,8 +116,24 @@
                     <li class="nav-item">
                         <a class="nav-link text-white fw-semibold" href=" {% url 'produccion:produccion_list' %} ">Informes de Producción</a>
                     </li>
-
-
+                    {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link text-white fw-semibold" href=" {% url 'cuentas:profile_detail' %} ">Perfil</a>
+                        </li>
+                        <li class="nav-item">
+                            <form action="{% url 'cuentas:logout' %}" method="POST" style="display: inline">
+                                {% csrf_token %}
+                                <button type="submit" class="nav-item nav-link">Cerrar sesión</button>
+                            </form>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link text-white fw-semibold" href=" {% url 'cuentas:login' %} ">Iniciar sesión</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white fw-semibold" href=" {% url 'cuentas:register' %} ">Registrarse</a>
+                        </li>
+                    {% endif %}
                 </ul>
             </div>
 

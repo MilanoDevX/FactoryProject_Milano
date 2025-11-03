@@ -1,0 +1,31 @@
+{% extends "Main/index.html" %}
+{% block title %}| Perfil {% endblock %}
+
+{% block content %}
+<div class="container my-5" style="max-width: 700px;">
+  <h2 class="fw-bold mb-4 text-center">Mi Perfil</h2>
+  <div class="card shadow-sm p-3">
+    <div class="row g-0">
+      <div class="col-md-4 d-flex justify-content-center align-items-center">
+        <img src="{{ user.avatar.url }}" alt="Avatar" class="img-fluid rounded-circle shadow-sm" style="max-height:180px;">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h4 class="fw-bold">{{ user.get_full_name|default:user.username }}</h4>
+          <p><strong>Email:</strong> {{ user.email }}</p>
+          <p><strong>Dirección:</strong> {{ user.direccion|default:"-" }}</p>
+          <p><strong>País:</strong> {{ user.pais|default:"-" }}</p>
+          <p><strong>Fecha de nacimiento:</strong> {{ user.fecha_de_nacimiento|date:"d/m/Y"|default:"-" }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-4">
+        <a href="{% url 'cuentas:profile_edit' %}" class="btn btn-primary me-2">Editar perfil</a>
+        <form action="{% url 'cuentas:logout' %}" method="post" style="display:inline;">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Cerrar sesión</button>
+        </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

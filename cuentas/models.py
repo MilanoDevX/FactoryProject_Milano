@@ -14,7 +14,7 @@ class Perfil(AbstractUser):
     )
     pais = models.CharField(max_length=50, blank=True, null=True)
     fecha_de_nacimiento = models.DateField(null=True)
-    direccion = models.CharField(max_length=100)
+    direccion = models.CharField(max_length=100, blank=True, null=True)
 
     def __str__(self):
         return f"{self.username}: {self.first_name} {self.last_name}"

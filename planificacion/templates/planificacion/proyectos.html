@@ -33,8 +33,6 @@
                     <tr>
                         <th scope="col">Nº Proyecto</th>
                         <th scope="col">Cliente</th>
-                        <th scope="col">Vendedor</th>
-                        <th scope="col">Fecha de Ingreso</th>
                         <th scope="col">Fecha de Inicio</th>
                         <th scope="col">Fecha de Entrega</th>
                         <th scope="col">Planificación</th>
@@ -46,14 +44,6 @@
                         <tr>
                             <td>{{ proyecto.numero_proyecto }}</td>
                             <td>{{ proyecto.cliente.nombre }} {{ proyecto.cliente.apellido }}</td>
-                            <td>
-                                {% if proyecto.vendedor %}
-                                    {{ proyecto.vendedor.nombre }} {{ proyecto.vendedor.apellido }}
-                                {% else %}
-                                    <span class="text-muted fst-italic">Sin asignar</span>
-                                {% endif %}
-                            </td>
-                            <td>{{ proyecto.fecha_ingreso|date:"d/m/Y"  }}</td>
                             <td>{{ proyecto.fecha_inicio|date:"d/m/Y"  }}</td>
                             <td>{{ proyecto.fecha_entrega|date:"d/m/Y"  }}</td>
                             <td>

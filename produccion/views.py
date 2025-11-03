@@ -1,3 +1,4 @@
+from django.shortcuts import render
 from produccion.forms import ProduccionForm
 from produccion.models import Produccion
 from django.urls import reverse_lazy
@@ -5,6 +6,11 @@ from django.views.generic import ListView, CreateView, UpdateView, DeleteView, D
 
 from django.http import JsonResponse
 from planificacion.models import Proyecto
+
+
+
+def produccion(request):
+    return render(request, "produccion/produccion.html")
 
 
 class ProduccionListView(ListView):

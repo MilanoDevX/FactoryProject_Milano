@@ -1,0 +1,20 @@
+{% extends 'Main/index.html' %}
+
+
+{% block title %}
+| Producción
+{% endblock title %}
+
+
+{% block content %}
+<main class="container my-5">
+    <div>
+        <h1 class="fw-bold text-primary mb-3">Producción</h1>
+        <h2><a class="text-secondary" href=" {% url 'produccion:produccion_list' %} ">Informes de Producción</a></h2>
+    </div>
+</main>
+{% endblock content %}
+
+
+
+

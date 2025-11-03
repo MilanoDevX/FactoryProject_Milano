@@ -3,7 +3,7 @@
 
 {% block content %}
 <div class="container mt-5 d-flex justify-content-center">
-    <div class="card shadow-lg border-0 w-75">
+    <div class="card shadow-lg border-0 w-50">
         <div class="card-header bg-primary text-white text-center">
             <h3 class="mb-0">
                 Producción — Proyecto N° {{ produccion.numero_proyecto.id }}
@@ -18,13 +18,13 @@
             <div class="row mb-3">
                 <div class="col-md-6">
                     <p><strong>Horas Diseño (Teóricas):</strong> 
-                        {{ produccion.horas_disenio_teo|default:"—" }}</p>
+                        {{ produccion.numero_proyecto.horas_disenio_teo|default:"—" }}</p>
                     <p><strong>Horas Diseño (Reales):</strong> 
                         {{ produccion.horas_disenio_real }}</p>
                 </div>
                 <div class="col-md-6">
                     <p><strong>Horas Fabricación (Teóricas):</strong> 
-                        {{ produccion.horas_fabricacion_teo|default:"—" }}</p>
+                        {{ produccion.numero_proyecto.horas_fabricacion_teo|default:"—" }}</p>
                     <p><strong>Horas Fabricación (Reales):</strong> 
                         {{ produccion.horas_fabricacion_real }}</p>
                 </div>
@@ -33,7 +33,7 @@
             <div class="row mb-3">
                 <div class="col-md-6">
                     <p><strong>Horas Montaje (Teóricas):</strong> 
-                        {{ produccion.horas_montaje_teo|default:"—" }}</p>
+                        {{ produccion.numero_proyecto.horas_montaje_teo|default:"—" }}</p>
                     <p><strong>Horas Montaje (Reales):</strong> 
                         {{ produccion.horas_montaje_real }}</p>
                 </div>

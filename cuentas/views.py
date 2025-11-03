@@ -21,6 +21,7 @@ def profile_detail(request):
     return render(request, "cuentas/perfil_detalle.html", {"user": request.user})
 
 
+@login_required
 def profile_edit(request):
     if request.method == "POST":
         form = PerfilChangeForm(request.POST, request.FILES, instance=request.user)

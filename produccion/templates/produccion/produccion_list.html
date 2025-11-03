@@ -42,9 +42,9 @@
                     <tr>
                         <td>{{ produccion.numero_proyecto.numero_proyecto }}</td>
                         <td>
-                            <div>Diseño: {{ produccion.horas_disenio_teo.numero_proyecto|default_if_none:"-" }}</div>
-                            <div>Fabricación: {{ produccion.horas_fabricacion_teo.numero_proyecto|default_if_none:"-" }}</div>
-                            <div>Montaje: {{ produccion.horas_montaje_teo.numero_proyecto|default_if_none:"-" }}</div>
+                            <div>Diseño: {{ produccion.numero_proyecto.horas_disenio_teo|default_if_none:"-" }}</div>
+                            <div>Fabricación: {{ produccion.numero_proyecto.horas_fabricacion_teo|default_if_none:"-" }}</div>
+                            <div>Montaje: {{ produccion.numero_proyecto.horas_montaje_teo|default_if_none:"-" }}</div>
                         </td>
                         <td>
                             <div>Diseño: {{ produccion.horas_disenio_real|default_if_none:"0" }}</div>

@@ -23,7 +23,7 @@ def profile_detail(request):
 
 def profile_edit(request):
     if request.method == "POST":
-        form = PerfilChangeForm(request.POST, instance=request.user)  # request.FILES
+        form = PerfilChangeForm(request.POST, request.FILES, instance=request.user)
         if form.is_valid():
             form.save()
             return redirect("cuentas:profile_detail")

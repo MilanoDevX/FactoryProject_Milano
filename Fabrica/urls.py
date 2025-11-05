@@ -20,6 +20,7 @@ from django.conf.urls.static import static
 
 from django.contrib import admin
 from django.urls import path, include
+from django.views.generic import TemplateView
 
 
 urlpatterns = [
@@ -28,6 +29,7 @@ urlpatterns = [
     path("", include("planificacion.urls")),
     path("produccion/", include("produccion.urls")),
     path("cuentas/", include("cuentas.urls")),
+    path("about/", TemplateView.as_view(template_name="cuentas/about_me.html"), name="about_me"),
 
 ]
 

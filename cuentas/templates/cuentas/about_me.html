@@ -1,0 +1,54 @@
+{% extends "Main/index.html" %}
+{% load static %}
+{% block title %}| Sobre Mí{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+  <div class="row align-items-center">
+    <!-- Imagen -->
+    <div class="col-md-4 text-center text-md-start mb-4 mb-md-0">
+      <img src="{% static 'about/elias.jpg' %}" 
+           alt="Elias Milano" 
+           class="img-fluid rounded-3 shadow-lg" 
+           style="max-height: 320px; object-fit: cover;">
+    </div>
+
+    <!-- Descripción -->
+    <div class="col-md-8">
+      <h2 class="fw-bold mb-3">Sobre Mí</h2>
+      <p class="text-muted" style="text-align: justify;">
+        Ingeniero de Producción y desarrollador de software con un fuerte impulso para crear soluciones que generen impacto y ayudar a solucionar problemas reales. 
+        Mi enfoque en la optimización de procesos y automatización, demostrado a lo largo de mi trayectoria profesional, complementa mi pasión por crear soluciones innovadoras y eficientes.
+      </p>
+      <p class="text-muted" style="text-align: justify;">
+        Siguiendo mi pasión por la programación me enrolé en un bootcamp para convertirme en Full Stack Developer, donde adquirí experiencia en 
+        <strong>JavaScript, React, Python, HTML, CSS, Bootstrap, SQL y APIs</strong>.
+      </p>
+      <p class="text-muted" style="text-align: justify;">
+        Estoy listo para formar parte de un equipo y colaborar en la creación de productos que mejoren y simplifiquen la vida de las personas. 
+        Disfruto enfrentando desafíos complejos a través de la programación y viendo cómo mi trabajo puede impactar positivamente en el día a día de los demás.
+        Siempre estoy en proceso de aprendizaje y perfeccionamiento de mis habilidades.
+      </p>
+      <p class="text-muted" style="text-align: justify;">
+        Si buscas a un desarrollador de software apasionado y con gran potencial, estaré encantado de que me contactes.
+      </p>
+
+      <!-- Contacto -->
+      <div class="mt-4">
+        <a href="mailto:eliasmilano.dev@gmail.com" class="btn btn-outline-primary me-2" target="_blank">
+          <i class="bi bi-envelope-fill"></i> Email
+        </a>
+        <a href="https://www.linkedin.com/in/elias-milano/" class="btn btn-outline-secondary me-2" target="_blank">
+          <i class="bi bi-linkedin"></i> LinkedIn
+        </a>
+        <a href="https://www.instagram.com/milanodevx/" class="btn btn-outline-danger me-2" target="_blank">
+          <i class="bi bi-instagram"></i> Instagram
+        </a>
+        <a href="https://github.com/MilanoDevX" class="btn btn-outline-dark" target="_blank">
+          <i class="bi bi-github"></i> GitHub
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

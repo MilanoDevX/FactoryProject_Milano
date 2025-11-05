@@ -17,9 +17,10 @@ class ProduccionListView(LoginRequiredMixin, ListView):
 
     def get_queryset(self):
         query = self.request.GET.get("q", "")
+        queryset = Produccion.objects.all().order_by("-numero_proyecto")
         if query:
-            return Produccion.objects.filter(numero_proyecto=query). order_by("-numero_proyecto")
-        return Produccion.objects.all()
+            queryset = queryset.filter(numero_proyecto__numero_proyecto__icontains=query)
+        return queryset
     
 
 class ProduccionCreateView(LoginRequiredMixin, CreateView):

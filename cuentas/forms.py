@@ -12,13 +12,22 @@ class PerfilCreationForm(UserCreationForm):
 class PerfilChangeForm(UserChangeForm):
     class Meta:
         model = Perfil
-        fields = ("avatar", "username", "first_name", "last_name", "pais", "direccion", "password")
+        fields = ("avatar", "username", "first_name", "last_name", "pais", "direccion")
         widgets = {
             "avatar": forms.ClearableFileInput(attrs={"class": "form-control"}),
-            "username": forms.TextInput(attrs={"class": "form-control", "placeholder": "Nombre de usuario"}),
+            "username": forms.TextInput(attrs={"class": "form-control", 
+                                               "placeholder": "Nombre de usuario", 
+                                               "readonly": "readonly",   # para mostrar este campo visualmente bloqueado
+                                               "disabled": "disabled"}),  # para evitar que sea editable y que se envíe en el POST
             "first_name": forms.TextInput(attrs={"class": "form-control", "placeholder": "Nombre"}),
             "last_name": forms.TextInput(attrs={"class": "form-control", "placeholder": "Apellido"}),
             "pais": forms.TextInput(attrs={"class": "form-control", "placeholder": "País"}),
             "direccion": forms.TextInput(attrs={"class": "form-control", "placeholder": "Dirección"}),
-            "password": forms.PasswordInput(attrs={"class": "form-control", "readonly": "readonly"}),
         }
+
+    # Para eliminar completamente el campo de contraseña del formulario de editar perfil
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if "password" in self.fields:
+            del self.fields["password"]
+

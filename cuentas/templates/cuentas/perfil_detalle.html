@@ -19,12 +19,22 @@
         </div>
       </div>
     </div>
+
     <div class="text-center mt-4">
-        <a href="{% url 'cuentas:profile_edit' %}" class="btn btn-primary me-2">Editar perfil</a>
-        <form action="{% url 'cuentas:logout' %}" method="post" style="display:inline;">
-            {% csrf_token %}
-            <button type="submit" class="btn btn-danger">Cerrar sesión</button>
-        </form>
+      <a href="{% url 'cuentas:profile_edit' %}" class="btn btn-primary me-2">
+        Editar perfil
+      </a>
+
+      <a href="{% url 'cuentas:change_password' %}" class="btn btn-warning me-2">
+        Cambiar contraseña
+      </a>
+
+      <form action="{% url 'cuentas:logout' %}" method="post" style="display:inline;">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">
+          Cerrar sesión
+        </button>
+      </form>
     </div>
   </div>
 </div>

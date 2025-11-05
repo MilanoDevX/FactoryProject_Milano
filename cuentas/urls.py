@@ -12,6 +12,7 @@ urlpatterns = [
     path("register/", register, name="register"),
     path("profile/", profile_detail, name="profile_detail"),
     path("profile/edit/", profile_edit, name="profile_edit"),
+    path("profile/cambiar-contrasena/", change_password, name="change_password"),
 
 
 ]

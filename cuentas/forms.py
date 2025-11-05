@@ -17,8 +17,7 @@ class PerfilChangeForm(UserChangeForm):
             "avatar": forms.ClearableFileInput(attrs={"class": "form-control"}),
             "username": forms.TextInput(attrs={"class": "form-control", 
                                                "placeholder": "Nombre de usuario", 
-                                               "readonly": "readonly",   # para mostrar este campo visualmente bloqueado
-                                               "disabled": "disabled"}),  # para evitar que sea editable y que se envíe en el POST
+                                               "readonly": "readonly",}),   # para mostrar este campo visualmente bloqueado
             "first_name": forms.TextInput(attrs={"class": "form-control", "placeholder": "Nombre"}),
             "last_name": forms.TextInput(attrs={"class": "form-control", "placeholder": "Apellido"}),
             "pais": forms.TextInput(attrs={"class": "form-control", "placeholder": "País"}),
